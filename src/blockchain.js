@@ -128,7 +128,7 @@ class Blockchain {
                   data: star
                 }));
                 if(block){
-                  resovle(block);
+                  resolve(block);
                 }else{
                   reject("It would appear that message was not signed. Please try again :) " );
                 }
@@ -220,13 +220,13 @@ class Blockchain {
                 block,
                 error:"Unable to valid block"
               })
-              prevBlockHash = block.prevBlockHash;
+              prevBlockHash = block.previousBlockHash;
+            }
             }
             if(errorLog.length>0){
               resolve(errorLog)
             }else {
               resolve([]);
-            }
           }
         });
     }
